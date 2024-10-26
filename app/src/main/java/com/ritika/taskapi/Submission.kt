@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.ui.AppBarConfiguration
 
 class Submission : Fragment() {
 
@@ -18,26 +21,11 @@ class Submission : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_submission, container, false)
 
 
+        return inflater.inflate(R.layout.fragment_submission, container, false)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        return view
     }
 
     companion object {

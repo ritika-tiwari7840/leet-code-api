@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_search_to_badge"
             app:destination="@id/badge" />
+        <action
+            android:id="@+id/action_search_to_solved2"
+            app:destination="@id/solved" />
     </fragment>
     <fragment
         android:id="@+id/profile"
@@ -35,4 +38,9 @@
         android:name="com.ritika.taskapi.Badge"
         android:label="Badge"
         tools:layout="@layout/fragment_badge" />
+    <fragment
+        android:id="@+id/solved"
+        android:name="com.ritika.taskapi.Solved"
+        android:label="Solved"
+        tools:layout="@layout/fragment_solved" />
 </navigation>

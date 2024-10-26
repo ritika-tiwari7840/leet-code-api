@@ -25,5 +25,11 @@
 
 
 
+    <item android:id="@+id/solved"
+        android:title="Solved"
+        android:contentDescription="@string/app_name"
+        android:icon="@drawable/baseline_credit_score_24"/>
+
+
 
 </menu>
