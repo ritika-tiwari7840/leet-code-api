@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/search">
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.ritika.taskapi.Search"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_search_to_submission"
+            app:destination="@id/submission" />
+        <action
+            android:id="@+id/action_search_to_badge"
+            app:destination="@id/badge" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.ritika.taskapi.Profile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/submission"
+        android:name="com.ritika.taskapi.Submission"
+        android:label="Submission"
+        tools:layout="@layout/fragment_submission" />
+    <fragment
+        android:id="@+id/badge"
+        android:name="com.ritika.taskapi.Badge"
+        android:label="Badge"
+        tools:layout="@layout/fragment_badge" />
+</navigation>
