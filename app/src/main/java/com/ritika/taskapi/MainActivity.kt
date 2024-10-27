@@ -2,6 +2,7 @@ package com.ritika.taskapi
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -16,7 +17,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.ritika.taskapi.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
+    // Declare SharedViewModel
+    private val sharedViewModel: SharedViewModel by viewModels()
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -35,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(R.id.search, R.id.profile, R.id.submission, R.id.badge, R.id.solved),
             binding.drawerLayout
+
         )
 
         // Setup toolbar with navController

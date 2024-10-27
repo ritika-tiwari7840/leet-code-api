@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_fragment"
     tools:context=".Profile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/profile_text"
-        android:text="profile" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:id="@+id/linear_layout"
+           android:divider="@color/dark_gray"
+           android:showDividers="middle"
+           android:dividerPadding="5dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toTopOf="@id/profile_detail_text"
+           >
+
+           <ImageView
+               android:id="@+id/profile_image"
+               android:layout_width="200dp"
+               android:layout_height="100dp"
+               />
+
+           <TextView
+               android:id="@+id/profile_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textAlignment="center"
+               android:textColor="@color/dark_gray"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               />
+
+       </LinearLayout>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/profile_detail_text"
+           app:layout_constraintTop_toBottomOf="@id/linear_layout"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           android:textAlignment="center"
+           android:textColor="@color/dark_gray"
+           android:textSize="20sp"
+           android:textStyle="bold"
+
+           />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -1,34 +1,51 @@
 package com.ritika.taskapi
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 
 class Submission : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var submissionAdapter: SubmissionAdapter
 
-    }
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_submission, container, false)
 
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
-        return inflater.inflate(R.layout.fragment_submission, container, false)
-
-
+        sharedViewModel.username.observe(viewLifecycleOwner) { username ->
+            fetchSubmissions(username)
+        }
+        return view
     }
 
-    companion object {
+    private fun fetchSubmissions(username: String) {
+        lifecycleScope.launch {
+            try {
+                val response = retrofit.api.getSubmission(username)
 
+                val submissions = response.submission
+
+                submissionAdapter = SubmissionAdapter(submissions)
+                recyclerView.adapter = submissionAdapter
+
+            }catch (e: Exception) {
+                Log.e("fetchSubmission", "fetchSubmissions: $e", )
             }
+        }
     }
+}
